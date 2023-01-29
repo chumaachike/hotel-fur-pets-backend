@@ -1,19 +1,19 @@
 database:
-  -name: postgres
-  -ipAllowList: [0]
+  - name: postgres
+      ipAllowList: [0]
 
 services:
-  -type: web
-   name: rails
-   env: ruby
-   buildCommand: "./bin/render-build.sh"
-   startCommand: build exec rails s
-   envVars:
-    -key: RAILS_MASTER_KEY
-    sync: false
-    -key: DATABASE_URL
-    name: postgres
-    property: connectionString
+  - type: web
+      name: rails
+      env: ruby
+      buildCommand: "./bin/render-build.sh"
+      startCommand: build exec rails s
+      envVars:
+        -key: RAILS_MASTER_KEY
+        sync: false
+        -key: DATABASE_URL
+        name: postgres
+        property: connectionString
   -type: redis
   name: redis
   ipAllowList: []
